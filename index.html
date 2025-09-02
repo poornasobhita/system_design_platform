@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive System Design Platform</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js for visualising trade‑off metrics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <img src="assets/network-illustration.png" alt="Abstract system design network" class="hero-image">
+    <div class="hero-text">
+      <h1>Interactive System Design Platform</h1>
+      <p>Learn system design from basics to advanced through hands‑on experimentation.</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="#url-shortener">URL Shortener</a></li>
+      <li><a href="#ecommerce">E‑Commerce</a></li>
+      <li><a href="#social-media">Social Media</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <!-- URL Shortener Scenario -->
+    <section id="url-shortener" class="scenario">
+      <h2>Design a URL Shortener</h2>
+      <p class="description">Build a scalable URL shortening service. Choose how you store and partition data and whether to introduce a caching layer.</p>
+      <div class="options">
+        <fieldset>
+          <legend>Choose a database</legend>
+          <label><input type="radio" name="url-db" value="SQL" checked> SQL</label>
+          <label><input type="radio" name="url-db" value="NoSQL"> NoSQL</label>
+        </fieldset>
+        <fieldset>
+          <legend>Sharding strategy</legend>
+          <label><input type="radio" name="url-shard" value="none" checked> Single database</label>
+          <label><input type="radio" name="url-shard" value="sharded"> Sharded</label>
+        </fieldset>
+        <fieldset>
+          <legend>Caching</legend>
+          <label><input type="radio" name="url-cache" value="none" checked> No caching</label>
+          <label><input type="radio" name="url-cache" value="cache"> Enable cache</label>
+        </fieldset>
+      </div>
+      <div class="visuals">
+        <div class="diagram-container">
+          <h3>Architecture Diagram</h3>
+          <div id="urlDiagram" class="diagram">Loading diagram…</div>
+        </div>
+        <div class="chart-container">
+          <h3>Trade‑off Metrics</h3>
+          <canvas id="urlChart" width="400" height="300"></canvas>
+        </div>
+      </div>
+      <div class="summary" id="urlSummary"></div>
+    </section>
+
+    <!-- E‑Commerce Platform Scenario -->
+    <section id="ecommerce" class="scenario">
+      <h2>Design an E‑Commerce Platform</h2>
+      <p class="description">Model an online store by selecting an architecture, region deployment strategy, caching layer and database.</p>
+      <div class="options">
+        <fieldset>
+          <legend>Architecture</legend>
+          <label><input type="radio" name="ecom-arch" value="Monolithic" checked> Monolithic</label>
+          <label><input type="radio" name="ecom-arch" value="Microservices"> Microservices</label>
+        </fieldset>
+        <fieldset>
+          <legend>Region</legend>
+          <label><input type="radio" name="ecom-region" value="single" checked> Single region</label>
+          <label><input type="radio" name="ecom-region" value="multi"> Multi‑region</label>
+        </fieldset>
+        <fieldset>
+          <legend>Cache strategy</legend>
+          <label><input type="radio" name="ecom-cache" value="none" checked> None</label>
+          <label><input type="radio" name="ecom-cache" value="redis"> Redis (application cache)</label>
+          <label><input type="radio" name="ecom-cache" value="cdn"> CDN (edge cache)</label>
+        </fieldset>
+        <fieldset>
+          <legend>Database</legend>
+          <label><input type="radio" name="ecom-db" value="SQL" checked> SQL</label>
+          <label><input type="radio" name="ecom-db" value="NoSQL"> NoSQL</label>
+        </fieldset>
+      </div>
+      <div class="visuals">
+        <div class="diagram-container">
+          <h3>Architecture Diagram</h3>
+          <div id="ecomDiagram" class="diagram">Loading diagram…</div>
+        </div>
+        <div class="chart-container">
+          <h3>Trade‑off Metrics</h3>
+          <canvas id="ecomChart" width="400" height="300"></canvas>
+        </div>
+      </div>
+      <div class="summary" id="ecomSummary"></div>
+    </section>
+
+    <!-- Social Media Backend Scenario -->
+    <section id="social-media" class="scenario">
+      <h2>Design a Social Media Backend</h2>
+      <p class="description">Explore the challenges of building a social media service by picking consistency models, storage types, partitioning and caching strategies.</p>
+      <div class="options">
+        <fieldset>
+          <legend>Consistency model</legend>
+          <label><input type="radio" name="social-consistency" value="Strong" checked> Strong</label>
+          <label><input type="radio" name="social-consistency" value="Eventual"> Eventual</label>
+        </fieldset>
+        <fieldset>
+          <legend>Storage</legend>
+          <label><input type="radio" name="social-db" value="SQL" checked> SQL</label>
+          <label><input type="radio" name="social-db" value="NoSQL"> NoSQL</label>
+        </fieldset>
+        <fieldset>
+          <legend>Partitioning</legend>
+          <label><input type="radio" name="social-partition" value="vertical" checked> Vertical</label>
+          <label><input type="radio" name="social-partition" value="horizontal"> Horizontal</label>
+        </fieldset>
+        <fieldset>
+          <legend>Caching</legend>
+          <label><input type="radio" name="social-cache" value="none" checked> None</label>
+          <label><input type="radio" name="social-cache" value="cache"> Enable cache</label>
+        </fieldset>
+      </div>
+      <div class="visuals">
+        <div class="diagram-container">
+          <h3>Architecture Diagram</h3>
+          <div id="socialDiagram" class="diagram">Loading diagram…</div>
+        </div>
+        <div class="chart-container">
+          <h3>Trade‑off Metrics</h3>
+          <canvas id="socialChart" width="400" height="300"></canvas>
+        </div>
+      </div>
+      <div class="summary" id="socialSummary"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Interactive System Design Platform. Built for educational purposes.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

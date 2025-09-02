@@ -1,0 +1,207 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f7f8fa;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b3d91;
+  color: white;
+  text-align: center;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Navigation */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.navbar li {
+  margin: 0 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #0b3d91;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #102d60;
+}
+
+/* Main container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Scenario sections */
+.scenario {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.scenario h2 {
+  margin-bottom: 0.5rem;
+  color: #0b3d91;
+}
+
+.scenario .description {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Option controls */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.options fieldset {
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 6px;
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.options legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+  color: #0b3d91;
+}
+
+.options label {
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+/* Visual containers */
+.visuals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.diagram-container, .chart-container {
+  flex: 1 1 450px;
+  min-width: 300px;
+}
+
+.diagram {
+  background-color: #f2f4f7;
+  border: 1px dashed #cbd5e1;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  min-height: 220px;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+}
+
+/* Summary box */
+.summary {
+  margin-top: 1.5rem;
+  background-color: #f7f9fc;
+  padding: 1rem;
+  border-left: 4px solid #0b3d91;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.summary h4 {
+  margin-bottom: 0.5rem;
+  color: #0b3d91;
+}
+
+.summary ul {
+  margin-left: 1rem;
+  list-style: disc;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f2f7;
+  color: #777;
+  font-size: 0.8rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .options {
+    flex-direction: column;
+  }
+  .visuals {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+# This GitHub Actions workflow automatically builds and deploys
+# the interactive system design platform to GitHub Pages.
+# It runs whenever the main branch is updated.  If you prefer
+# to use GitHub Pages directly (by enabling Pages in repository settings
+# and serving from the root or a docs/ folder), you can disable
+# this workflow.
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository contents
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Configure GitHub Pages (sets up authentication for deployment)
+      - name: Setup pages
+        uses: actions/configure-pages@v4
+
+      # Upload the static site files as an artifact.  This uses
+      # the root of the repository as the publishing directory.
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./system_design_platform
+
+      # Deploy the artifact to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
+        with:
+          # If your repository uses a custom domain, set
+          # `cname: yourdomain.com` here.
+          # For default GitHub domain, no configuration is needed.
+          # The token and branch are automatically handled by the action.
+          token: ${{ secrets.GITHUB_TOKEN }}
