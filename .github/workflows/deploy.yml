@@ -36,7 +36,7 @@ jobs:
       # Upload the static site files as an artifact.  This uses
       # the root of the repository as the publishing directory.
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./system_design_platform
 
