@@ -32,6 +32,8 @@ jobs:
       # Configure GitHub Pages (sets up authentication for deployment)
       - name: Setup pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       # Upload the static site files as an artifact.  This uses
       # the root of the repository as the publishing directory.
